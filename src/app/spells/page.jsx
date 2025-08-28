@@ -24,7 +24,7 @@ export default function SpellsPage() {
 
   return (
     <main className="p-6 grid sm:grid-cols-1 gap-6">
-      <h1 className="text-3xl font-bold text-amber-300 mb-6">Spells</h1>
+      <h1 className="text-3xl font-bold text-neutral-50 mb-6">Spells</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {spells.map((spell, i) => (
           <div key={i} className="bg-white shadow rounded-xl p-2">
