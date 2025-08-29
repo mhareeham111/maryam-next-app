@@ -15,26 +15,41 @@ export default function Page() {
   const [query, setQuery] = useState("");
   const router = useRouter();
 
+  //   const handleSearch = (e) => {
+  //     e.preventDefault();
+  //     const lower = query.toLowerCase();
+  //     if (["home", "/"].includes(lower)) router.push("/");
+  //     else if (lower === "characters") router.push("/characters");
+  //     else if (lower === "books") router.push("/books");
+  //     else if (lower === "spells") router.push("/spells");
+  //     setQuery(""); // clear input
+  //   };
+
   const handleSearch = (e) => {
     e.preventDefault();
     const lower = query.toLowerCase();
+
     if (["home", "/"].includes(lower)) router.push("/");
     else if (lower === "characters") router.push("/characters");
     else if (lower === "books") router.push("/books");
     else if (lower === "spells") router.push("/spells");
-    setQuery(""); // clear input
+    else {
+      router.push(`/characters?search=${lower}`);
+    }
+
+    setQuery("");
   };
 
   return (
     <main className="p-6 flex flex-col items-center justify-center min-h-screen text-center">
       <h1 className="text-2xl font-bold">
-        Welcome to the Harry Potter API Demo 
+        Welcome to the Harry Potter API Demo
       </h1>
       <p className="mt-4">
         Explore characters, books, and spells using the links above.
       </p>
 
-      {/* 🔍 Search input */}
+     
       <form onSubmit={handleSearch} className="mt-6 flex gap-2">
         <input
           type="text"
